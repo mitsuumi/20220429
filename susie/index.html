@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <title>Marvel</title>
+    <style>
+        a {
+          text-decoration: none;
+        }
+        .btn {
+            border-width: 2px;
+        }
+        :root{
+            --main-color: #ec1d24;
+        }
+        .header-carousel-item{
+            height: 750px;
+        }
+
+        .card{
+          cursor: pointer;
+        }
+
+        .bg-cover {
+            background-size: cover;
+            background-position: center center;
+        }
+        /*  輪播圖 */
+        .carousel-caption{
+            background-color: rgba(0,0,0,.6);
+        }
+
+
+        @media (min-width: 768px) {
+          .text-md-dark {
+            color: #333;
+          }
+        }
+
+        .btn-cart {
+            background-color: transparent;
+            position: relative;
+        }
+        .btn-cart .badge {
+            position:absolute;
+            top:0;
+            right:-1;
+        }
+
+        /* 最新影片區 */
+        .box-shadow {
+          box-shadow: 0 3px 5px rgba(0,0,0,.16);
+          transition: box-shadow .3s;
+        }
+        .box-shadow:hover {
+          box-shadow: 0 4px 10px rgba(0,0,0,.24);
+        }
+
+        /*------------------------------
+        quote
+        ------------------------------*/
+        .quote-section{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin-top: 80px;
+            background-image: linear-gradient(rgba(236, 29, 36,0.8),rgba(0,0,0,1)), url(img/avengers.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .quote-section p{
+            padding: 100px 0;
+            color:white;
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        /*------------------------------
+          卡片內的內容
+        ------------------------------*/
+        .thor-card-background{
+          background-image: url(https://terrigen-cdn-dev.marvel.com/content/prod/1x/thorloveandthunder_lob_mas_mob_01.jpg);
+          background-size: cover;
+          width: 100%;
+          height: 10vh;
+        }
+    </style>
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+              <img src="img/marvel.svg" alt="shopping.html" width="120" height="40">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="aboutMarvel.html">關於Marvel</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#11">電影時間軸</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#22">我的片單</a>
+              </li>
+            </ul>
+          </div>
+          <form class="d-flex">
+            <div class="dropdown ml-auto me-2">
+                <button class="btn btn-sm btn-cart text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div><i class=" fa-solid fa-cart-shopping fa-2x"></i></div>
+                  <span class=" badge rounded-pill bg-danger ">1</span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="min-width: 300px;">
+                    <div class="px-4 py-3">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </div>
+                  
+                </div>
+              </div>
+              <a href="#" class="btn btn-outline-primary me-2" type="submit" data-bs-toggle="modal" data-bs-target="#loginModal">登入</a>
+              <a href="#" class="btn btn-primary me-2" type="submit" data-bs-toggle="modal" data-bs-target="#registerModal">註冊</a>
+          </form>
+        </div>
+      </nav>
+      <!-- 輪播圖 -->
+      <!-- https://terrigen-cdn-dev.marvel.com/content/prod/1x/doctorstrangeinthemultiverseofmadness_lob_mas_min_mob_01.jpg -->
+      <header>
+        <div id="carouselExampleIndicators" class="carousel slide carousel-pic" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item header-carousel-item active bg-cover" style="background-image: url(https://wallpaperaccess.com/full/621125.jpg)">
+                    <div class="carousel-caption d-none d-md-block px-3">
+                        <h3>《奇異博士2:失控多重宇宙》</h3>
+                        <p>倒數一個月， 2022 年 5 月 6 日即將上映!!全新劇照公開，Doctor Strange 多樣版本輪番上陣</p>
+                    </div>
+                </div>
+                <div class="carousel-item header-carousel-item bg-cover" style="background-image: url(https://wallpaperaccess.com/full/3863211.jpg)">
+                    <div class="carousel-caption d-none d-md-block px-3">
+                      <h3>《奇異博士2:失控多重宇宙》</h3>
+                      <p>倒數一個月， 2022 年 5 月 6 日即將上映!!全新劇照公開，Doctor Strange 多樣版本輪番上陣</p>
+                    </div>
+                </div>
+                <div class="carousel-item header-carousel-item bg-cover" style="background-image: url(https\:\/\/terrigen-cdn-dev\.marvel\.com\/content\/prod\/1x\/thorloveandthunder_lob_mas_dsk_01\.jpg)">
+                    <div class="carousel-caption d-none d-md-block px-3">
+                        <h3>《雷神索爾：愛與雷霆》</h3>
+                        <p>改編自漫威超級英雄漫畫，電影《雷神索爾》系列最新作品《雷神索爾：愛與雷霆》，公開了前導預告影片啦</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+      </div>
+      </header>
+      <section class="container-fluid p-5">
+        <div class="row text-center mb-4">
+          <div class="col-12 title">
+              <h1>最新影片</h1>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-8">
+            <div class="row">
+
+              <!-- 第1張卡片 -->
+              <div class="col-6 col-sm-4 col-md-3 my-2">
+                <div class="card box-shadow text-center h-100" data-bs-toggle="modal" data-bs-target="#thorModal">
+                  <img src="img/moviecard01.jpg" class="card-img-top" alt="雷神索爾圖">
+                  <div class="card-body">
+                    <!-- Thor: Love and Thunder JUL 8, 2022 -->
+                    <h5 class="card-title">雷神索爾：愛與雷霆</h5>
+                    <p class="card-text">2022年7月8日</p>
+                  </div>
+                  <div class="card-footer border-top-0 bg-white">
+                    <a href="#" class="btn btn-primary text-light" type=":not(:disabled)">加入清單</a>
+                  </div>
+                </div>
+              </div>
+              <!-- 第2張卡片 -->
+              <div class="col-6 col-sm-4 col-md-3 my-2">
+                <div class="card box-shadow text-center h-100">
+                  <img src="img/moviecard02.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <!-- Thor: Love and Thunder JUL 8, 2022 -->
+                    <h5 class="card-title">奇異博士2：失控多重宇宙</h5>
+                    <p class="card-text">2022年5月6日</p>
+                  </div>
+                  <div class="card-footer border-top-0 bg-white">
+                    <a href="#" class="btn btn-primary text-light">加入清單</a>
+                  </div>
+                </div>
+              </div>
+               <!-- 第3張卡片 -->
+               <div class="col-6 col-sm-4 col-md-3  my-2">
+                <div class="card box-shadow text-center h-100">
+                  <img src="img/moviecard03.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <!-- Thor: Love and Thunder JUL 8, 2022 -->
+                    <h5 class="card-title">蜘蛛人：無家日</h5>
+                    <p class="card-text">2021年</p>
+                  </div>
+                  <div class="card-footer border-top-0 bg-white">
+                    <a href="#" class="btn btn-primary text-light">加入清單</a>
+                  </div>
+                </div>
+              </div>
+              <!-- 第4張卡片 -->
+              <div class="col-6 col-sm-4 col-md-3  my-2">
+                <div class="card box-shadow text-center h-100">
+                  <img src="img/moviecard04.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <!-- Thor: Love and Thunder JUL 8, 2022 -->
+                    <h5 class="card-title">永恆族</h5>
+                    <p class="card-text">2021年</p>
+                  </div>
+                  <div class="card-footer border-top-0 bg-white">
+                    <a href="#" class="btn btn-primary text-light">加入清單</a>
+                  </div>
+                </div>
+              </div>
+               <!-- 第5張卡片 -->
+               <div class="col-6 col-sm-4 col-md-3  my-2">
+                <div class="card box-shadow text-center h-100">
+                  <img src="img/moviecard05.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <!-- Thor: Love and Thunder JUL 8, 2022 -->
+                    <h5 class="card-title">尚氣與十環傳奇</h5>
+                    <p class="card-text">2021年</p>
+                  </div>
+                  <div class="card-footer border-top-0 bg-white">
+                    <a href="#" class="btn btn-primary text-light">加入清單</a>
+                  </div>
+                </div>
+              </div>
+               <!-- 第6張卡片 -->
+               <div class="col-6 col-sm-4 col-md-3  my-2">
+                <div class="card box-shadow text-center h-100">
+                  <img src="img/moviecard06.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <!-- Thor: Love and Thunder JUL 8, 2022 -->
+                    <h5 class="card-title">黑寡婦</h5>
+                    <p class="card-text">2021年</p>
+                  </div>
+                  <div class="card-footer border-top-0 bg-white">
+                    <a href="#" class="btn btn-primary text-light">加入清單</a>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- quotes -->
+      <section class="quote-section">
+        <div class="row justify-content-center">
+          <div class="col-6 col-sm-12">
+            <p>“It's not about how much we lost. It's about how much we have left.” <br> -Tony Stark, Avengers: Endgame</p>
+          </div>
+        </div>
+      
+        
+      </section>
+
+
+      <!-- 其他電影 -->
+      <section class="container-fluid p-5">
+        <div class="row text-center mb-4">
+          <div class="col-12 title">
+              <h1>其他電影</h1>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-8">
+            <div class="row">
+
+              <!-- 第1張卡片 -->
+              <div class="col-6 col-sm-4 col-md-3 my-2">
+                <div class="card box-shadow text-center h-100">
+                  <img src="img/othercard01.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <!-- Thor: Love and Thunder JUL 8, 2022 -->
+                    <h5 class="card-title">X戰警：黑鳳凰</h5>
+                    <p class="card-text">2019年</p>
+                  </div>
+                  <div class="card-footer border-top-0 bg-white">
+                    <a href="#" class="btn btn-primary text-light">加入清單</a>
+                  </div>
+                </div>
+              </div>
+              <!-- 第2張卡片 -->
+              <div class="col-6 col-sm-4 col-md-3 my-2">
+                <div class="card box-shadow text-center h-100">
+                  <img src="img/othercard02.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <!-- Thor: Love and Thunder JUL 8, 2022 -->
+                    <h5 class="card-title">死侍2</h5>
+                    <p class="card-text">2028年</p>
+                  </div>
+                  <div class="card-footer border-top-0 bg-white">
+                    <a href="#" class="btn btn-primary text-light">加入清單</a>
+                  </div>
+                </div>
+              </div>
+               <!-- 第3張卡片 -->
+               <div class="col-6 col-sm-4 col-md-3 my-2">
+                <div class="card box-shadow text-center h-100">
+                  <img src="img/othercard03.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <!-- Thor: Love and Thunder JUL 8, 2022 -->
+                    <h5 class="card-title">羅根</h5>
+                    <p class="card-text">2017年</p>
+                  </div>
+                  <div class="card-footer border-top-0 bg-white">
+                    <a href="#" class="btn btn-primary text-light">加入清單</a>
+                  </div>
+                </div>
+              </div>
+              <!-- 第4張卡片 -->
+              <div class="col-6 col-sm-4 col-md-3 my-2">
+                <div class="card box-shadow text-center h-100">
+                  <img src="img/othercard04.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <!-- Thor: Love and Thunder JUL 8, 2022 -->
+                    <h5 class="card-title">X戰警：天啟</h5>
+                    <p class="card-text">2016年</p>
+                  </div>
+                  <div class="card-footer border-top-0 bg-white">
+                    <a href="#" class="btn btn-primary text-light">加入清單</a>
+                  </div>
+                </div>
+              </div>
+               <!-- 第5張卡片 -->
+               <div class="col-6 col-sm-4 col-md-3 my-2">
+                <div class="card box-shadow text-center h-100">
+                  <img src="img/othercard05.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <!-- Thor: Love and Thunder JUL 8, 2022 -->
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">2026年</p>
+                  </div>
+                  <div class="card-footer border-top-0 bg-white">
+                    <a href="#" class="btn btn-primary text-light">加入清單</a>
+                  </div>
+                </div>
+              </div>
+               <!-- 第6張卡片 -->
+               <div class="col-6 col-sm-4 col-md-3 my-2">
+                <div class="card box-shadow text-center h-100">
+                  <img src="img/othercard06.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <!-- Thor: Love and Thunder JUL 8, 2022 -->
+                    <h5 class="card-title">X戰警：未來昔日</h5>
+                    <p class="card-text">2014年</p>
+                  </div>
+                  <div class="card-footer border-top-0 bg-white">
+                    <a href="#" class="btn btn-primary text-light">加入清單</a>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+       <!-- footer -->
+        <div class="container-fluid py-5 bg-dark text-light">
+          <div class="row justify-content-center">
+              <div class="col-sm-8 text-center">
+              <h1>有疑問嗎？請聯絡我們。</h1>
+                <div class="row">
+                      <div class="col-6 col-sm-4 col-md-3">
+                          <a href="#">常見問題</a>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-3">
+                          <a href="#">說明中心</a>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-3">
+                          <a href="#">帳戶</a>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-3">
+                          <a href="#">媒體中心</a>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-3">
+                          <a href="#">投資人關係</a>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-3">
+                          <a href="#">工作機會</a>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-3">
+                          <a href="#">觀賞方式</a>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-3">
+                          <a href="#">使用條款</a>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-3">
+                          <a href="#">隱私權</a>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-3">
+                          <a href="#">Cookie設定</a>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-3">
+                          <a href="#">企業資訊</a>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-3">
+                          <a href="#">聯絡我們</a>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-3">
+                          <a href="#">速度測試</a>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-3">
+                          <a href="#">法律聲明</a>
+                      </div>
+                  </div> 
+              </div>
+          </div>
+      </div>
+
+      <!-- 登入 -->
+      <!-- Modal -->
+      <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+
+          <div class="modal-content">
+            <div class="modal-header bg-primary">
+              <h5 class="modal-title" id="exampleModalLabel">登入</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- 登入form -->
+              <form id="logForm" class="login-form needs-validation" novalidate>
+              
+                <div class="row d-flex justify-content-center align-items-center">
+                  <div class="col-12">
+                      <div class="mb-3">
+                        <label for="validationCustom01" class="form-label">帳號</label>
+                        <input
+                          type="text"
+                          id="validationCustom01"
+                          name="Account"
+                          class="form-control log-control"
+                          required
+                          placeholder="請輸入電話號碼或Email"
+                        />
+                        <div class="invalid-feedback">要輸入帳號呀!</div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="validationCustom02" class="form-label"
+                          >密碼</label
+                        >
+                        <input
+                          type="password"
+                          id="validationCustom02"
+                          name="Passowrd"
+                          class="form-control log-control"
+                          placeholder="請輸入密碼"
+                          required
+
+                        />
+                        <div class="invalid-feedback">你的密碼呢?</div>
+                      </div>
+                      <div class="col-12">
+                        <div class="mb-3">
+                          <input type="checkbox" id="exampleCheck1" />
+                          <label class="form-check-label" for="invalidCheck"
+                            >記住我的密碼</label
+                          >
+                        </div>
+                      </div>
+                    
+                    </div>
+                  </div>
+              
+                  <div class="modal-footer">
+                    <!-- me-auto 向右邊推兩個項目 -->
+                    <a href="#" class="me-auto" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#registerModal">還沒有密碼嗎?快來註冊>></a>
+                    <button type="submit" class="btn btn-primary">登入</button>
+                  </div>
+              </form>
+              <!-- 登入form結束 -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 註冊 -->
+      <!-- Modal -->
+      <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-primary">
+              <h5 class="modal-title" id="exampleModalLabel">註冊</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- 註冊form -->
+              <form id="RegiForm" class="login-form needs-validation" novalidate>
+                <div class="row d-flex justify-content-center align-items-center">
+                  <div class="col-12">
+                    
+                      <div class="mb-3">
+                        <label for="validationCustom03" class="form-label">帳號</label>
+                        <input
+                          type="text"
+                          id="validationCustom03"
+                          name="Account"
+                          class="form-control"
+                          required
+                          placeholder="請輸入電話號碼或Email"
+                        />
+                        <div class="invalid-feedback">要輸入帳號呀!</div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="validationCustom04" class="form-label"
+                          >密碼</label
+                        >
+                        <input
+                          type="password"
+                          id="validationCustom04"
+                          name="Passowrd"
+                          class="form-control"
+                          placeholder="請輸入密碼"
+                          required
+
+                        />
+                        <div class="invalid-feedback">你的密碼呢?</div>
+                      </div>
+                      <div class="col-12">
+                        <div class="mb-3">
+                          <input type="checkbox" id="exampleCheck2" />
+                          <label class="form-check-label" for="invalidCheck"
+                            >記住我的密碼</label
+                          >
+                        </div>
+                      </div>
+                    
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#" class="me-auto" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#loginModal">切換到登入</a>
+                    <button type="submit" class="btn btn-primary">註冊</button>
+                  </div>
+                </form>
+              <!-- 註冊form結束 -->
+
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- 卡片modal  -->
+      <!-- Modal -->
+      <div class="modal fade" id="thorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="card mb-3 border-0" style="max-width: 100%;">
+                <div class="row g-0">
+                  <div class="col-md-4 text-center">
+                    <img src="img/moviecard01.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h4 class="card-title">雷神索爾：愛與雷霆</h4>
+                      <p class="card-text">《雷神索爾：愛與雷霆》是一部2022年美國超級英雄電影，改編自漫威漫畫旗下角色雷神索爾，由漫威影業製作、華特迪士尼影業發行。電影為2017年電影《雷神索爾3：諸神黃昏》的續集，「漫威電影宇宙」的第29部電影作品，屬於漫威電影宇宙第四階段。</p>
+                      <h5>上映日期</h5>
+                      <p class="card-text"><small class="text-muted">2022年7月8日</small></p>
+                      <button type="button" class="btn btn-primary text-light">加入清單</button>
+                      <div class="row my-3">
+                        <div class="col-sm-3">
+                          <h5>導演</h5>
+                          <p>Taika Waititi</p>
+                        </div>
+                        <div class="col-sm-3">
+                          <h5>演員</h5>
+                          <p>Chris Hemsworth<br>Tessa Thompson <br>Natalie Portman</p>
+                        </div>
+                      </div>
+                      <h5>預告片</h5>
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/tgB1wUcmbbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-primary">加入清單</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+    <script>  
+       $(document).ready(function () {
+        const $logForm = $('#logForm');
+        // console.log($logForm);
+        $logForm.submit(function (event) {
+          event.preventDefault();
+          if ($logForm.hasClass('needs-validation')) {
+            $logForm.removeClass('needs-validation');
+            $logForm.addClass('was-validated');
+          }
+          // 正確的話就登入
+          // jquery回傳的東西是陣列，所以如果沒有出現form-control:invalid ，這個陣列會是空值，長度就會是0，表示內容都通過
+          // bootstrap的文件中有寫到如果驗證失敗，form-control會顯示偽元素invalid
+          console.log($('.log-control.form-control:invalid').length);
+          if ($('.log-control.form-control:invalid').length === 0) {
+            alert('成功登入')
+            // $('#loginModal').removeClass('show');
+            // $('#loginModal').hide();
+            // $('body').removeClass('modal-open');
+            // $('.modal-backdrop').removeClass('show');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
